@@ -19,8 +19,9 @@ class SubmissionsController extends Controller
   public function create(){
     return view('submission_create');
   }
-  public function delete(){
-    //
+  public function delete($id){
+    Submission::where('id','=',$id)->delete();
+		return redirect('/submission')->with('delete_success2', 'You have succesfully deleted the submission!');
   }
 
   public function store(Request $request){

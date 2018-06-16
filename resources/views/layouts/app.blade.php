@@ -15,6 +15,7 @@
         @include ('inc.sidebar')
       </div>
       <div class="col-md-8 content">
+        <!-- messages -->
         @if(count($errors) >0)
           @foreach($errors->all() as $error)
             <div class="alert alert-danger">
@@ -28,12 +29,22 @@
             {{session('post_success')}}
           </div>
         @endif
+        @if(session('delete_success'))
+          <div class="alert alert-success">
+            {{session('delete_success')}}
+          </div>
+        @endif
+        @if(session('delete_success2'))
+          <div class="alert alert-success">
+            {{session('delete_success2')}}
+          </div>
+        @endif
         @if(session('submission_success'))
           <div class="alert alert-success">
             {{session('submission_success')}}
           </div>
         @endif
-
+        <!-- content -->
         @yield('content')
       </div>
     </div>

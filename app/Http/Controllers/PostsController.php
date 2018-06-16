@@ -18,9 +18,9 @@ class PostsController extends Controller
       public function create(){
         return view('post_create');
       }
-      public function update($id){
-        $posts = Post::findOrFail($id);
-        return view('post_update')->with('posts', $posts);
+      public function delete($id){
+        Post::where('id','=',$id)->delete();
+    		return redirect('post')->with('delete_success', 'You have succesfully deleted the post!');
       }
       public function store(Request $request){
       $this->validate($request, [
