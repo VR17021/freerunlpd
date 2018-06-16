@@ -26,7 +26,7 @@
             <p class="text-success text-right">{{$submission->user->name}}</p>
             @if (!Auth::guest() && Auth::user()->isAdmin())
               <p class="text-left small">
-                <a href="/submission/delete">Delete post</a>
+                <a href="{{ url('submission/delete', $submission->id) }}">Delete submission</a>
               </p>
             @endif
         </div>

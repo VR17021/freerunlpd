@@ -21,6 +21,11 @@
                 </div>
               </div>
             </div>
+          @if (!Auth::guest() && Auth::user()->isAdmin())
+            <p class="text-left small">
+              <a href="{{ url('post/delete', $posts->id) }}">Delete post</a>
+            </p>
+          @endif
         </div>
     </div>
   </div>
