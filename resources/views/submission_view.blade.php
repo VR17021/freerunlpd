@@ -16,9 +16,11 @@
           </div>
           <p>{{$submission->description}}</p>
           <p class="text-success text-right">{{$submission->user->name}}</p>
+		  @if(Auth::user()->isAdmin())
           <p class="text-left small">
             <a href="/submission/delete">Delete post</a>
           </p>
+		  @endif
         </div>
       @endif
     @endforeach
